@@ -1,3 +1,17 @@
+html,
+body {
+ height: 100%;
+ position: relative;
+}
+
+* {
+  box-sizing: border-box;
+ }
+ *:before,
+ *:after {
+  box-sizing: border-box;
+ }
+
 .App {
   color: #282c34;
   
@@ -21,6 +35,9 @@ li{
 .footer{
   background-color: #282c34;
   height: 5em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 
@@ -43,6 +60,9 @@ img.bookImg.card-img {
   padding-right: 8rem;
 }
 
+.text-center.col {
+  color: whitesmoke;
+}
 
 /* padding: 2rem 1rem;
     margin-bottom: 2rem;
