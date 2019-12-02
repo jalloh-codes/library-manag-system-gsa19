@@ -1,0 +1,50 @@
+.App {
+  color: #282c34;
+  
+}
+li{
+  list-style: none;
+  color: darkgoldenrod;
+}
+
+.header-div{
+  background-color: #46484d;
+  text-align: center;
+  color: #e3ebfa;
+}
+.nav-item{
+  color: #e3ebfa;
+}
+.authors-div li{
+  text-align: center;
+}
+.footer{
+  background-color: #282c34;
+  height: 5em;
+}
+
+
+
+img.bookImg.card-img {
+  width: 15rem;
+}
+
+
+.book {
+  display: inline-flex;
+  width: 100%;
+  height: auto;
+  color: black;
+  padding-left: 10rem;
+}
+
+
+.img {
+  padding-right: 8rem;
+}
+
+
+/* padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem; */
