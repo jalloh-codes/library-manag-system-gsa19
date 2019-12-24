@@ -14,9 +14,6 @@ import {
 import { connect } from 'react-redux';
 import {addBook} from '../actions/bookActions';
 
-
-
-
 const fileTypes = 'image/x-png, image/png,image/jpg, image/jpeg, image/gif';
 
 class  BookModal  extends Component {
@@ -186,7 +183,7 @@ class  BookModal  extends Component {
                                 onChange={this.onAuthorLastChange} />
 
                     <Label for="title">Author ID</Label>
-                                <Input type="text"
+                                <Input type="number"
                                 name="authorID"
                                 id="authorID"
                                 palceholder="add author ID"

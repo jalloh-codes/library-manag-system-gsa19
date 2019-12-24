@@ -4,30 +4,26 @@ body {
  position: relative;
 }
 
-* {
+/* * {
   box-sizing: border-box;
  }
  *:before,
  *:after {
   box-sizing: border-box;
- }
+ } */
 
-.App {
+/* .App {
   color: #282c34;
   
-}
+} */
 li{
   list-style: none;
-  color: darkgoldenrod;
+  color: rgb(26, 25, 23);
 }
 
 .header-div{
-  background-color: #46484d;
+  background-color: #c7c7c7;
   text-align: center;
-  color: #e3ebfa;
-}
-.nav-item{
-  color: #e3ebfa;
 }
 .authors-div li{
   text-align: center;
@@ -35,9 +31,9 @@ li{
 .footer{
   background-color: #282c34;
   height: 5em;
-  position: absolute;
   bottom: 0;
   width: 100%;
+  position: fixed;
 }
 
 
@@ -54,14 +50,28 @@ img.bookImg.card-img {
   color: black;
   padding-left: 10rem;
 }
-
-
-.img {
-  padding-right: 8rem;
+.card-img-top{
+  max-height: 19rem;
 }
+
+.cards{
+  border: 0px solid rgba(0,0,0,.125);
+}
+.addBook {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* .img {
+  padding-right: 8rem;
+} */
 
 .text-center.col {
   color: whitesmoke;
+}
+
+.list-group{
+  margin-top: 1rem;
 }
 
 /* padding: 2rem 1rem;

@@ -6,7 +6,7 @@ import {removeBook} from '../actions/bookActions';
 import { connect } from 'react-redux';
 
 
-const SingleBook = ({id, title, descriptio,  image, author, published, booknum,  dispatch }) =>(
+const SingleBook = ({id, title, descriptio,  image, authorID, authorFirst, authorLast, published, booknum,  dispatch }) =>(
 <Container>
     <div className="main">
         <Row>
@@ -21,7 +21,8 @@ const SingleBook = ({id, title, descriptio,  image, author, published, booknum, 
         
             <CardBody>
                 <CardTitle>Tiitle: {title}</CardTitle>
-                <CardText>By: <small> {author} </small> </CardText>
+                <CardText>By: <small> {authorFirst} {authorLast} </small> </CardText>
+                <CardText>{authorID}</CardText>
                 <CardSubtitle>published Date: {published}</CardSubtitle>
 
                 <CardText> Description: {descriptio}</CardText>

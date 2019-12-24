@@ -2,6 +2,9 @@ import React from 'react';
 import {Container} from 'reactstrap';
 import { connect }  from 'react-redux'
 import SingleBook from './SingleBook'
+
+
+
 const Books = (props) =>{
     
 
@@ -16,6 +19,9 @@ const Books = (props) =>{
         }
     });
     
+
+    
+    
     return(
     <Container>
         <li>Books Dome Data</li>
@@ -27,6 +33,7 @@ const Books = (props) =>{
                 image={book.image}
                 authorFirst={book.authorFirst}
                 authorLast={book.authorLast}
+                authorID={book.authorID}
                 published={book.published}
                 descriptio={book.descriptio}
                 booknum ={book.booknum}

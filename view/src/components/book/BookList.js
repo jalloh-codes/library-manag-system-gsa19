@@ -6,7 +6,7 @@ import { Container, Row  } from 'reactstrap';
 
 const BookList = (props) =>(
     
-    <Container>
+    <Container className="booklist">
         <div className="addBook" >
             <BookModal />
             
@@ -18,10 +18,9 @@ const BookList = (props) =>(
                     image={book.image}                 
                     authorFirst={book.authorFirst}
                     authorLast={book.authorLast}
-                    
-                />
-                
+                     />
             )}
+            
         </Row>
     </Container>
 );

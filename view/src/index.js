@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {getBooks} from './components/actions/bookActions';
+import {getBooks, getBookId} from './components/actions/bookActions';
 import store from './components/store/store';
 
 
 
-store.dispatch(getBooks()).then(() =>{
+store.dispatch(getBooks() ).then(() =>{
     ReactDOM.render(<App />, document.getElementById('root'));
 })
 
