@@ -39,6 +39,9 @@ public class Book implements Serializable {
     @Column(name ="image")
     private String image;
 
+    @Column(name = "categorie")
+    private String categorie;
+
 
 
     protected Book() {
@@ -46,6 +49,14 @@ public class Book implements Serializable {
 
     public long getId() {
         return id;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
     }
 
     public String getTitle() {
@@ -117,7 +128,7 @@ public class Book implements Serializable {
     public String toString() {
         return "Book [id=" + id + ", title=" + title + ", authorFirst=" + authorFirst +
                  ", authorLast=" + authorLast + ", descriptio=" + descriptio + "" + "authorID" + authorID
-                + ", published=" + published + "booknum=" + booknum + ",image= " + image +"]";
+                + ", published=" + published + "booknum=" + booknum + ",image= " + image + "categorie" + categorie + "]";
     }
 
 }

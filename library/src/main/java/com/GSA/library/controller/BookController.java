@@ -56,6 +56,7 @@ public class BookController{
             saveBook.setPublished(book.getPublished());
             saveBook.setImage(book.getImage());
             saveBook.setBooknum(book.getBooknum());
+            saveBook.setCategorie(book.getCategorie());
 
             Book updatedBook = bookRepository.save(saveBook);
             return new ResponseEntity<>(updatedBook, HttpStatus.OK);
