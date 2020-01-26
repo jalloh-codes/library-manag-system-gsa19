@@ -27,7 +27,7 @@ export default class Header extends Component{
         return(
             <header className="header-div">
                 <Navbar color="faded" light>
-                    <NavbarToggler onClick={this.toggleNavbar} light/>
+                    <NavbarToggler onClick={this.toggleNavbar} />
                    
                     <Collapse isOpen={this.state.open} navbar>
                     <Nav navbar>
@@ -35,7 +35,10 @@ export default class Header extends Component{
                         <NavLink href="/author" >Authors</NavLink>
                         </NavItem>
                         <NavItem>
-                        <NavLink href="/">Books</NavLink>
+                        <NavLink href="/books">Books</NavLink>
+                        </NavItem>
+                        <NavItem>
+                        <NavLink href="/students">Students</NavLink>
                         </NavItem>
                     </Nav>
                     </Collapse>

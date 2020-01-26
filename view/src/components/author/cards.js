@@ -2,12 +2,16 @@ import React from 'react';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import {Link} from 'react-router-dom';
     
-const AuthorCard = ({id, authorFirst, authorLast}) =>{
+const AuthorCard = ({id, authorFirst, authorLast, authorID}) =>{
     return(
-        <ListGroup>
+        <ListGroup key={authorID}>
             <ListGroupItem key={id}>
-                <Link to={`/author/${authorFirst}${authorLast}`}>
-                {authorFirst}, {authorLast} 
+                <Link to={{ pathname:`/author/${authorFirst}/${authorLast}/${authorID}`,
+                        state:{
+                            authorID: authorID
+                        }
+                }}>
+                {authorFirst}, {authorLast}
                 </Link>
             </ListGroupItem>
         </ListGroup>

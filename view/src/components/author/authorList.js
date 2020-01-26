@@ -1,31 +1,41 @@
-import  React from 'react';
+import  React, {Component} from 'react';
 import AuthorCard from  './cards';
 import {Container} from 'reactstrap'
 import { connect }  from 'react-redux'
+import {getBooks} from '../actions/bookActions';
 
-const AuthorList = (props) =>{
+class  AuthorList extends Component{
+
+    componentDidMount(){
+        this.props.getBooks()
+    }
+    render(){   
     return(
         <Container>
         <div>
-            {props.books.map((book) =>
-        
+            {this.props.books.map((book) =>
                   <AuthorCard 
                     id={book.id}
-                    authorFirst={book.authorFirst}
+                        authorID={book.authorID}
+                     authorFirst={book.authorFirst}
                     authorLast={book.authorLast}
-                  />  
+                    key={2}
+                   />  
             )} 
         </div>
+     
         </Container>
-    );
-}
-
-
-const mapStateToProps = (state) =>{  
-    console.log(state);   
-    return{
-        books: state
+        );
     }
 }
 
-export default connect(mapStateToProps)(AuthorList);
+
+const mapStateToProps = (state) =>{
+    return{
+        books: state.bookReducer,
+
+    }
+}
+
+
+export default connect(mapStateToProps, {getBooks})(AuthorList)

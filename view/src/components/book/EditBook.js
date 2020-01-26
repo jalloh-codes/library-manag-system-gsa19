@@ -21,7 +21,7 @@ const EditBook =(props) => {
   
         <BookForm 
         onSubmitBook={(book) =>{
-            props.dispatch(editBook(getID, book))
+            props.dispatch(editBook(parseInt(getID), book))
             props.history.push('/')
         }}
 

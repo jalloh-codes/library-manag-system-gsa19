@@ -54,25 +54,65 @@ img.bookImg.card-img {
   max-height: 19rem;
 }
 
-.cards{
+.row{
+  margin-bottom: 5rem;
+}
+.card{
   border: 0px solid rgba(0,0,0,.125);
+  margin-bottom: 2rem;
+  box-shadow: 5px 10px #cccbcba3;
 }
 .addBook {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
+
+.col-3 {
+  display: inline-flex;
+}
+
+.search{
+  margin: 0 auto;
+  padding: 10px;
+  width: 50%;
+}
+
+.btn-group{
+  margin-left: 3.3rem;
+}
+
+
+.arrow .btn-secondary{
+  color: #282c34;
+  background-color: #ffffff;
+  border-color: rgba(165, 142, 142, 0.125);
+} 
+/* .f-searach{
+  display: inline-flex;
+} */
+
+
+
+
+
 /* .img {
   padding-right: 8rem;
 } */
 
-.text-center.col {
+/* .text-center.col {
   color: whitesmoke;
 }
 
 .list-group{
   margin-top: 1rem;
 }
+ul.sliderTray___-vHFQ.sliderAnimation___300FY.carousel__slider-tray.carousel__slider-tray--horizontal {
+  display: flex;
+} */
+
+
+
 
 /* padding: 2rem 1rem;
     margin-bottom: 2rem;

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
 import {
-    Button,
-    Modal,
+    Button, Toast,
+    Modal, ToastBody,
     ModalHeader,
     ModalBody,
     Form,
@@ -20,15 +20,8 @@ class  BookModal  extends Component {
 
     constructor(props) {
         super(props);
-        this.onTitleChange = this.onTitleChange.bind(this);
-        this.onAuthorFirstChange = this.onAuthorFirstChange.bind(this);
-        this.onAuthorLastChange = this.onAuthorLastChange.bind(this);
-        this.onAuthorIDChange = this.onAuthorIDChange.bind(this);
-        this.onDescriptionChange = this.onDescriptionChange.bind(this);
-        this.onPublishedChange = this.onPublishedChange.bind(this);
-        this.onImageChange = this.onImageChange.bind(this);
-        this.onIsbnChange = this.onIsbnChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this)
 
         this.state = {
             modal: false,
@@ -49,47 +42,8 @@ class  BookModal  extends Component {
         });
     }
 
-
-
-    onTitleChange(e) {
-        const title = e.target.value;
-        this.setState(() => ({ title: title }));
-    }
-    onIsbnChange(e) {
-        const booknum = e.target.value;
-        this.setState(() => ({ booknum: booknum }));
-    }
-
-    onImageChange(e) {
-         const image = e.target.value
-        this.setState( () =>({image: image}));      
-        
-    }
-
-
-    onAuthorIDChange(e) {
-        const authorID = e.target.value;
-        this.setState(() => ({ authorID: authorID }));
-    }
-
-    onAuthorFirstChange(e) {
-        const authorFirst = e.target.value;
-        this.setState(() => ({ authorFirst: authorFirst }));
-    }
-
-    onAuthorLastChange(e) {
-        const authorLast = e.target.value;
-        this.setState(() => ({ authorLast: authorLast }));
-    }
-
-    onDescriptionChange(e) {
-        const descriptio = e.target.value;
-        this.setState(() => ({ descriptio: descriptio }));
-    }
-
-    onPublishedChange(e) {
-        const published = e.target.value;
-        this.setState(() => ({ published: published }));
+    handleInput(e){
+        this.setState({[e.target.name]: e.target.value}); 
     }
 
     onSubmit =(e) => {
@@ -132,10 +86,7 @@ class  BookModal  extends Component {
             booknum: '',
             published: '',
             image: ''
-
         })
-        
-        
     }
     render(){
         return(
@@ -144,9 +95,9 @@ class  BookModal  extends Component {
             <div>
                 <Button
                 color="dark"
-                stye={{marginTop: '2rem'}}
                 onClick={this.toggle}
-                >Add Book</Button>
+                className='btn btn-danger float-right'
+                >&oplus;</Button>
                 <Modal
                 isOpen ={this.state.modal}
                 toggle={this.toggle}
@@ -164,7 +115,7 @@ class  BookModal  extends Component {
                                 id="title"
                                 palceholder="add title"
                                 value={this.state.title}
-                                onChange={this.onTitleChange} />
+                                onChange={this.handleInput} />
 
                     <Label for="title">Author Firstname</Label>
                                 <Input type="text"
@@ -172,7 +123,7 @@ class  BookModal  extends Component {
                                 id="authorFirst"
                                 palceholder="add author firstname"
                                 value={this.state.authorFirst}
-                                onChange={this.onAuthorFirstChange} />
+                                onChange={this.handleInput} />
                     
                     <Label for="title">Author Lastname</Label>
                                 <Input type="text"
@@ -180,7 +131,7 @@ class  BookModal  extends Component {
                                 id="authorLast"
                                 palceholder="add author lastname"
                                 value={this.state.authorLast}
-                                onChange={this.onAuthorLastChange} />
+                                onChange={this.handleInput} />
 
                     <Label for="title">Author ID</Label>
                                 <Input type="number"
@@ -188,16 +139,16 @@ class  BookModal  extends Component {
                                 id="authorID"
                                 palceholder="add author ID"
                                 value={this.state.authorID}
-                                onChange={this.onAuthorIDChange} />
+                                onChange={this.handleInput} />
 
 
-                    <Label for="title">Description</Label>
+                            <Label for="title">Description</Label>
                                 <Input type="text"
-                                name="descriptions"
-                                id="descriptions"
-                                palceholder="add description"
+                                name="descriptio"
+                                id="descriptio"
+                                palceholder="add author lastname"
                                 value={this.state.descriptio}
-                                onChange={this.onDescriptionChange} />
+                                onChange={this.handleInput} />
 
 
                     <Label for="title">ISBN</Label>
@@ -206,7 +157,7 @@ class  BookModal  extends Component {
                                 id="booknum"
                                 palceholder="add Isbn"
                                 value={this.state.booknum}
-                                onChange={this.onIsbnChange} />
+                                onChange={this.handleInput} />
 
 
                     <Label for="published">Published Date</Label>
@@ -215,7 +166,7 @@ class  BookModal  extends Component {
                                 id="published"
                                 palceholder="add published date"
                                 value={this.state.published}
-                                onChange={this.onPublishedChange} />
+                                onChange={this.handleInput} />
 
                     <Label for="image">Image</Label>
                                 <Input type="text"
@@ -223,7 +174,7 @@ class  BookModal  extends Component {
                                 id="image"
                                 palceholder="add image"
                                 value={this.state.image}
-                                onChange={this.onImageChange}
+                                onChange={this.handleInput}
                                 accept={fileTypes} 
                                 multiple={false}/>
                     <Button

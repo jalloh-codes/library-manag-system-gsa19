@@ -1,6 +1,8 @@
 import axios from '../axios/axios';
 
 
+//**************************Books***********************************//
+
 const _addBook =(book) =>({
     type: 'ADD_BOOK',
     book
@@ -27,8 +29,9 @@ export const addBook =(bookData = {
             image: bookData.image,
             booknum: bookData.booknum
         };
-        return axios.post('/books/create', book).then(result =>{
-            dispatch(_addBook(result.data))
+        return axios.post('/books/create', book)
+            .then(result =>{
+                dispatch(_addBook(result.data))
         })
     }
 }
@@ -81,24 +84,4 @@ export const getBooks= () =>{
            
         })
     }
-    
-    
-}
-
-const _getBookId = (bookI) => ({
-    type: "GET_BOOKID",
-    bookI
-})
-
-export const getBookId= (id) =>{
-    return (dispatch) =>{
-        return axios.get(`/books/${id}`).then(result =>{
-            const  bookI = [];
-
-            bookI.push(result.data)
-            dispatch(_getBookId(bookI))
-
-        })
-    }
-}
-
+};

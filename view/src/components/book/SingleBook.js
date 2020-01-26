@@ -1,14 +1,14 @@
 import React from 'react';
 import {Container, CardBody, 
-    CardTitle, CardText, CardImg, Button,
- NavLink, CardSubtitle, Row} from 'reactstrap';
-import {removeBook} from '../actions/bookActions';
+    CardTitle, CardText, CardImg, CardSubtitle, Row} from 'reactstrap';
 import { connect } from 'react-redux';
+import  Rent from './Rent';
 
 
 const SingleBook = ({id, title, descriptio,  image, authorID, authorFirst, authorLast, published, booknum,  dispatch }) =>(
 <Container>
-    <div className="main">
+    
+    <div className="main" key={id}>
         <Row>
         <div className="book">
             
@@ -27,22 +27,9 @@ const SingleBook = ({id, title, descriptio,  image, authorID, authorFirst, autho
 
                 <CardText> Description: {descriptio}</CardText>
                 <CardText>ISBN: {booknum}</CardText>
+                <Rent booknum={booknum}/>
 
             </CardBody>
-        </div>
-        <div>
-            <div>
-                <Button
-                className="remove-btn" 
-                        color="danger"
-                        size="sm"
-                        onClick={() =>{
-                            dispatch(removeBook({id}));
-                        }}>
-                        Delete
-                </Button>
-                <NavLink href={`/update/${title}/${id}`}>Edit</NavLink>
-            </div>
         </div>
         </div>
         </Row>
