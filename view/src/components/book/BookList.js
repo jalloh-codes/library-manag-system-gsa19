@@ -3,8 +3,7 @@ import BookCard from  './cards'
 import { connect }  from 'react-redux'
 import {getBooks} from '../actions/bookActions';
 import BookModal from './BookModal';
-import { Container, Row, FormGroup,Input,} from 'reactstrap';
-import { array } from 'prop-types';
+import { Container, FormGroup,Input,} from 'reactstrap';
 
 
 class BookList extends Component{

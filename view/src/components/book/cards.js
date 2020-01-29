@@ -1,6 +1,6 @@
 import React from 'react';
-import {Card, CardBody,
-    CardTitle, CardText, CardImg, Col, CardSubtitle,
+import {CardBody,
+    CardTitle, CardText, CardImg, CardSubtitle,
     UncontrolledButtonDropdown, DropdownMenu, DropdownItem, DropdownToggle} from 'reactstrap';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
