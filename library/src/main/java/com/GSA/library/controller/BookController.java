@@ -49,8 +49,6 @@ public class BookController{
         if(bookData.isPresent()){
             Book saveBook = bookData.get();
             saveBook.setTitle(book.getTitle());
-            saveBook.setAuthorFirst(book.getAuthorFirst());
-            saveBook.setAuthorLast(book.getAuthorLast());
             saveBook.setAuthorID(book.getAuthorID());
             saveBook.setDescriptio(book.getDescriptio());
             saveBook.setPublished(book.getPublished());
