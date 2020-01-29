@@ -24,15 +24,9 @@ class  BookModal  extends Component {
         this.handleInput = this.handleInput.bind(this)
 
         this.state = {
-            modal: false,
-            title:  '',
-            authorFirst:'',
-            authorLast: '',
-            authorID: '',
-            descriptio: '',
-            published:  '',
-            booknum: '',
-            image: '',
+            modal: false, title:  '', authorFirst:'',
+            authorLast: '', authorID: '', descriptio: '',
+            published:  '', booknum: '', image: '',
             error: ''
         };
     }
@@ -70,118 +64,75 @@ class  BookModal  extends Component {
                 }catch(err){
                     console.log(err);
                     
-                }
-            
-           
+                }  
         }
         this.toggle();
 
         //reset state field to empty 
         this.setState({
-            title: '',
-            authorFirst: '',
-            authorLast: '',
-            authorID: '',
-            descriptio: '',
-            booknum: '',
-            published: '',
-            image: ''
+            title: '', authorFirst: '', authorLast: '',
+            authorID: '', descriptio: '', booknum: '',
+            published: '',image: ''
         })
     }
     render(){
         return(
 
     
-            <div>
-                <Button
-                color="dark"
-                onClick={this.toggle}
-                className='btn btn-danger float-right'
-                >&oplus;</Button>
-                <Modal
-                isOpen ={this.state.modal}
-                toggle={this.toggle}
-                >
+            <div className="float-right" >
+                <Button color="dark" onClick={this.toggle} 
+                className='btn addBook '>&oplus;</Button>
+
+                <Modal isOpen ={this.state.modal}toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>
                         Add Book TO DB </ModalHeader>
                     <ModalBody>
-                    <Form onSubmit={this.onSubmit} >
-            <FormGroup>
-                {this.state.error && <p className='error'>{this.state.error}</p>}
+                <Form onSubmit={this.onSubmit} >
+                    <FormGroup>
+                        {this.state.error && <p className='error'>{this.state.error}</p>}
                 
-                            <Label for="title">Title</Label>
-                                <Input type="text"
-                                name="title"
-                                id="title"
-                                palceholder="add title"
-                                value={this.state.title}
-                                onChange={this.handleInput} />
+                        <Label for="title">Title</Label>
+                        <Input type="text" name="title" id="title"
+                            palceholder="add title" value={this.state.title}
+                            onChange={this.handleInput} />
 
-                    <Label for="title">Author Firstname</Label>
-                                <Input type="text"
-                                name="authorFirst"
-                                id="authorFirst"
-                                palceholder="add author firstname"
-                                value={this.state.authorFirst}
-                                onChange={this.handleInput} />
+                        <Label for="title">Author Firstname</Label>
+                        <Input type="text" name="authorFirst"
+                            id="authorFirst" palceholder="add author firstname"
+                            alue={this.state.authorFirst} onChange={this.handleInput} />
                     
-                    <Label for="title">Author Lastname</Label>
-                                <Input type="text"
-                                name="authorLast"
-                                id="authorLast"
-                                palceholder="add author lastname"
-                                value={this.state.authorLast}
-                                onChange={this.handleInput} />
+                        <Label for="title">Author Lastname</Label>
+                        <Input type="text" name="authorLast"
+                            id="authorLast" palceholder="add author lastname"
+                            value={this.state.authorLast} onChange={this.handleInput} />
 
-                    <Label for="title">Author ID</Label>
-                                <Input type="number"
-                                name="authorID"
-                                id="authorID"
-                                palceholder="add author ID"
-                                value={this.state.authorID}
-                                onChange={this.handleInput} />
+                        <Label for="title">Author ID</Label>
+                        <Input type="number" name="authorID" id="authorID"
+                            palceholder="add author ID" value={this.state.authorID}
+                            onChange={this.handleInput} />
 
+                        <Label for="title">Description</Label>
+                        <Input type="text" name="descriptio" id="descriptio"
+                            palceholder="add author lastname" value={this.state.descriptio}
+                            onChange={this.handleInput} />
 
-                            <Label for="title">Description</Label>
-                                <Input type="text"
-                                name="descriptio"
-                                id="descriptio"
-                                palceholder="add author lastname"
-                                value={this.state.descriptio}
-                                onChange={this.handleInput} />
+                        <Label for="title">ISBN</Label>
+                        <Input type="text" name="booknum" id="booknum"
+                            alceholder="add Isbn" value={this.state.booknum}
+                            onChange={this.handleInput} />
 
+                        <Label for="published">Published Date</Label>
+                        <Input type="text" name="published" id="published"
+                            palceholder="add published date" value={this.state.published}
+                            onChange={this.handleInput} />
 
-                    <Label for="title">ISBN</Label>
-                                <Input type="text"
-                                name="booknum"
-                                id="booknum"
-                                palceholder="add Isbn"
-                                value={this.state.booknum}
-                                onChange={this.handleInput} />
+                        <Label for="image">Image</Label>
+                        <Input type="text" name="image" id="image"
+                            palceholder="add image" value={this.state.image}
+                            onChange={this.handleInput} accept={fileTypes} 
+                            multiple={false}/>
 
-
-                    <Label for="published">Published Date</Label>
-                                <Input type="text"
-                                name="published"
-                                id="published"
-                                palceholder="add published date"
-                                value={this.state.published}
-                                onChange={this.handleInput} />
-
-                    <Label for="image">Image</Label>
-                                <Input type="text"
-                                name="image"
-                                id="image"
-                                palceholder="add image"
-                                value={this.state.image}
-                                onChange={this.handleInput}
-                                accept={fileTypes} 
-                                multiple={false}/>
-                    <Button
-                                color="dark"
-                                style={{marginTop: '2rem'}}
-                                block
-                                >Add Book</Button>
+                <Button color="dark" style={{marginTop: '2rem'}} block>Add Book</Button>
                
                 </FormGroup>
                 </Form>

@@ -9,7 +9,6 @@ const initialState = {};
 const middleleware = [thunk];
 
 
-
 const store = createStore(combineReducers({rentReducer, bookReducer, studentReducer}), initialState, compose(
     applyMiddleware(...middleleware),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

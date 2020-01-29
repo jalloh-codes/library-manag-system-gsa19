@@ -4,18 +4,6 @@ body {
  position: relative;
 }
 
-/* * {
-  box-sizing: border-box;
- }
- *:before,
- *:after {
-  box-sizing: border-box;
- } */
-
-/* .App {
-  color: #282c34;
-  
-} */
 li{
   list-style: none;
   color: rgb(26, 25, 23);
@@ -36,12 +24,9 @@ li{
   position: fixed;
 }
 
-
-
 img.bookImg.card-img {
   width: 15rem;
 }
-
 
 .book {
   display: inline-flex;
@@ -63,8 +48,11 @@ img.bookImg.card-img {
   box-shadow: 5px 10px #cccbcba3;
 }
 .addBook {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  position: fixed;
+  width: 50px;
+  right: 82px;
+  bottom: 7rem;
+  border-radius: 50%;
 }
 
 
@@ -75,46 +63,93 @@ img.bookImg.card-img {
 .search{
   margin: 0 auto;
   padding: 10px;
-  width: 50%;
+  width: 60%;
 }
-
-.btn-group{
-  margin-left: 3.3rem;
-}
-
 
 .arrow .btn-secondary{
   color: #282c34;
-  background-color: #ffffff;
-  border-color: rgba(165, 142, 142, 0.125);
+  background-color: #ffffff00;
+  border-color: rgb(218, 198, 198);
 } 
-/* .f-searach{
-  display: inline-flex;
-} */
 
 
-
-
-
-/* .img {
-  padding-right: 8rem;
-} */
-
-/* .text-center.col {
-  color: whitesmoke;
-}
-
-.list-group{
-  margin-top: 1rem;
-}
-ul.sliderTray___-vHFQ.sliderAnimation___300FY.carousel__slider-tray.carousel__slider-tray--horizontal {
+.rows{
   display: flex;
-} */
+  flex-wrap: wrap;
+}
+.cards{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  width: 10.5rem;
+  margin: 7px;
+}
+
+.arrow{
+  width: 10px;
+}
+
+@media(width: 414px){
+  .cards {
+    width: 9.4rem;
+  }
+}
+@media(max-width: 1366px){
+  .card{
+    width: 15rem;
+    margin: 11px;
+  }
+  .rows{
+    margin-left: 21px;
+    margin-bottom: 8rem;
+  }
+  .addBook{
+    right: 59px;
+  }
+}
 
 
+@media(max-width: 375px){
+  .cards{
+    width: 8.2rem;
+    margin: 5px;
+  }
+  .addBook{
+    width: 40px;
+    right: 4px;
+  }
+}
 
+@media(max-width: 320px){
+  .cards{
+    width: 7.5rem;
+  }
+  .rows{
+    margin-left: 0;
+  }
+}
 
-/* padding: 2rem 1rem;
-    margin-bottom: 2rem;
-    background-color: #e9ecef;
-    border-radius: .3rem; */
+@media(max-width: 360px){
+  .rows{
+    margin-left: 0;
+  }
+  .addBook{
+    right: 4px;
+    width: 40px;
+  }
+}
+
+@media(width: 411px){
+  .cards{
+    width: 8.7rem;
+  }
+  .addBook{
+    right: 8px;
+  }
+}

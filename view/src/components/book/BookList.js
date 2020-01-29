@@ -50,11 +50,11 @@ class BookList extends Component{
                         </FormGroup>                        
                     {/* </Form>  */}
                     
-                    </div>  
+                </div>  
                 
-                    <div>
-                        <Row> 
-                            {
+                <div>
+                        <div className="rows"> 
+                        {
                             this.getbooks().map((e) =>
                                 <BookCard 
                                 id={e.id}
@@ -67,13 +67,11 @@ class BookList extends Component{
                                 />
                             )
                             }
-                            
-                        
-                        </Row>
-                        <div className="addbook" >
+                        </div>
+
+                    
                             <BookModal />
                     
-                        </div>
                     </div>
             </Container>
 

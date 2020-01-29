@@ -9,9 +9,9 @@ const BookCard = ({id, title, authorFirst, authorLast, image, authorID, dispatch
 
          
                 
-                    <Col xs="3" key={id}>
+                    // <div className="cols" key={id}>
                     
-                        <Card key={id} >
+                        <div className="cards" key={id} >
                         <Link to={{pathname:`/book/${title}/${id}`, state:{
                             name: true
                         }}} > 
@@ -22,7 +22,9 @@ const BookCard = ({id, title, authorFirst, authorLast, image, authorID, dispatch
                                     <Link to={{pathname:`/author/${authorFirst}/${authorLast}/${authorID}`}}> By: 
                                         <small>{authorFirst} {authorLast}.</small> 
                                     </Link> 
-                                    <UncontrolledButtonDropdown className="arrow" >
+                                </CardSubtitle>               
+                            </CardBody>
+                            <UncontrolledButtonDropdown className="arrow">
                                         <DropdownToggle caret>
                                             
                                         </DropdownToggle>
@@ -38,12 +40,10 @@ const BookCard = ({id, title, authorFirst, authorLast, image, authorID, dispatch
                                             <DropdownItem>EDIT</DropdownItem>
                                             
                                         </DropdownMenu>
-                                    </UncontrolledButtonDropdown>
-                                </CardSubtitle>                       
-                            </CardBody>
-                        </Card> 
+                                    </UncontrolledButtonDropdown>        
+                        </div> 
                     
-                    </Col>
+                    // </div>
                 
                 
             
