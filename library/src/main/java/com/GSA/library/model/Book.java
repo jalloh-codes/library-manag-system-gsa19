@@ -17,12 +17,6 @@ public class Book implements Serializable {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "authorFirst")
-    private String authorFirst;
-
-    @Column(name = "authorLast")
-    private String authorLast;
-
     @Column(name = "authorID")
     private  String authorID;
 
@@ -41,8 +35,6 @@ public class Book implements Serializable {
 
     @Column(name = "categorie")
     private String categorie;
-
-
 
     protected Book() {
     }
@@ -65,22 +57,6 @@ public class Book implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getAuthorFirst() {
-        return authorFirst;
-    }
-
-    public void setAuthorFirst(String authorFirst) {
-        this.authorFirst = authorFirst;
-    }
-
-    public String getAuthorLast() {
-        return authorLast;
-    }
-
-    public void setAuthorLast(String authorLast) {
-        this.authorLast = authorLast;
     }
 
     public String getAuthorID() {
@@ -123,11 +99,10 @@ public class Book implements Serializable {
         this.image = image;
     }
 
-
     @Override
     public String toString() {
-        return "Book [id=" + id + ", title=" + title + ", authorFirst=" + authorFirst +
-                ", authorLast=" + authorLast + ", descriptio=" + descriptio + "" + "authorID" + authorID
+        return "Book [id=" + id + ", title=" + title + ", authorFirst=" +
+                ", authorLast=" + ", descriptio=" + descriptio + "" + "authorID" + authorID
                 + ", published=" + published + "booknum=" + booknum + ",image= " + image + "categorie" + categorie + "]";
     }
 
