@@ -31,7 +31,8 @@ class StudentBooks extends Component{
         
         return(
             
-                <Container className="main-page">
+                <Container className="main-page">  
+                        <hr/>
                     <div className="rows">
                         {students.map((student) => (parseInt(student.studentID)
                          === parseInt(this.stuID)) ?

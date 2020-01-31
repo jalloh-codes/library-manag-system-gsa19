@@ -7,25 +7,18 @@ const Card = ({id, fname, lname, studentID, dispatch}) =>{
 
         return(
             <div>
-                <ListGroup key={id}>
+                <div className="list-groups" key={id}>
                     <ListGroupItem key={id}>
-                        <Link
-                        to={{pathname:`students/${fname}/${lname}/${studentID}`}}
-                        >
+                        <Link to={{pathname:`students/${fname}/${lname}/${studentID}`}}>
                         {fname}, {lname}
                         </Link>
-                        <Button
-                                     className="remove-btn" 
-                                     color="danger"
-                                     size="sm"
-                                     onClick={() =>{
-                                        dispatch(removeStudent({id}));
-                                    }}
-                                     >
-                                         &times;</Button>
-                         
+                        <Button className="remove-btn delete" color="danger"
+                            size="sm" onClick={() =>{
+                            dispatch(removeStudent({id}));
+                            }} > &times;</Button> 
                     </ListGroupItem>
-                </ListGroup>
+                    
+                </div>
             </div>
         );
 }

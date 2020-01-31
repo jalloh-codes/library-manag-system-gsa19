@@ -16,6 +16,7 @@ class  AuthorBooks extends Component{
     render(){
         return(
             <Container className="main-page">  
+                <hr/>
                               
             <div className="rows">
             {

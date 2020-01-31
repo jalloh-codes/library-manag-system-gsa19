@@ -44,6 +44,7 @@ class BookList extends Component{
         
         return(
             <Container className="main-page">
+                <hr/>
                     <div className="search">
                         <FormGroup>
                               <Input type="text" name="searchTitle" id="searchTitle"

@@ -11,7 +11,8 @@ class  AuthorList extends Component{
     }
     render(){   
     return(
-        <Container>
+        <Container className="main-page">
+            <hr/>
         <div>
             {this.props.authors.map((author) =>
                   <AuthorCard 

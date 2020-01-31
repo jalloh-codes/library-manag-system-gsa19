@@ -30,7 +30,6 @@ class  Books extends Component{
         return(
         <Container className="main-page">
 
-            <li>Books Dome Data</li>
                 <hr/>
                 {this.props.books.map((book) =>
                 this.props.authors.map((author) =>{

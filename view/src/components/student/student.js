@@ -13,9 +13,10 @@ class Student extends Component{
     }
     render(){
         return(
-            <Container>
+            <Container className="main-page">
+
             <div>
-                <li>Student</li>
+                <li>Registed Student List</li>
                 <hr/>
                 {
                     this.props.students.map((student) =>{
