@@ -31,9 +31,8 @@ class StudentBooks extends Component{
         
         return(
             
-            <Container>
-                <div>
-                    <div>
+                <Container className="main-page">
+                    <div className="rows">
                         {students.map((student) => (parseInt(student.studentID)
                          === parseInt(this.stuID)) ?
                         <StudentInfo id={student.id}
@@ -49,7 +48,7 @@ class StudentBooks extends Component{
                         /> : null)}
                     </div>
 
-                    <div>
+                    <div className="rows">
                         <BookList 
                             books={this.props.books}
                             rents={this.props.rents}
@@ -57,8 +56,7 @@ class StudentBooks extends Component{
                             stuID={this.stuID}
                         />    
                     </div>
-                </div>
-            </Container>
+                </Container>
         );
     }
 }

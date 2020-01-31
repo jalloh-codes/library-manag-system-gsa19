@@ -1,7 +1,7 @@
 import React from 'react';
-import {Card, CardBody, CardTitle, CardText, CardSubtitle} from 'reactstrap';
+import {Col, CardBody, CardTitle, CardText, CardSubtitle} from 'reactstrap';
 const StudentInfo = ({id, fname, lname, studentID, address, city, state, apt, zipcode, major}) =>(
-    <Card key={id}>
+    <Col sm="12" md={{ size: 6, offset: 3 }} key={id}>
         <CardBody>
             <p className="glyphicon glyphicon-user"></p>
             <CardBody>
@@ -14,7 +14,7 @@ const StudentInfo = ({id, fname, lname, studentID, address, city, state, apt, zi
                 </CardSubtitle>
             </CardBody>
         </CardBody>
-    </Card>
+    </Col>
 );
 
 export default StudentInfo;

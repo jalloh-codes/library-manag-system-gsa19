@@ -6,9 +6,9 @@ import  Rent from './Rent';
 
 
 const SingleBook = ({id, title, descriptio,  image, authorID, authorFirst, authorLast, published, booknum,  dispatch }) =>(
-<Container>
+
     
-    <div className="main" key={id}>
+    <div key={id}>
         <Row>
         <div className="book">
             
@@ -34,7 +34,6 @@ const SingleBook = ({id, title, descriptio,  image, authorID, authorFirst, autho
         </div>
         </Row>
     </div>
-    </Container>
 );
 
 export default connect()(SingleBook);

@@ -2,6 +2,8 @@ html,
 body {
  height: 100%;
  position: relative;
+ color: aliceblue;
+ scroll-behavior: smooth;
 }
 
 li{
@@ -10,18 +12,30 @@ li{
 }
 
 .header-div{
-  background-color: #c7c7c7;
+  background-color: #13373e;
   text-align: center;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  overflow: hidden;
+  left: 0;
+  z-index: 99;
 }
+
 .authors-div li{
   text-align: center;
+  color: aliceblue;
+}
+.main-page.container {
+  margin-top: 4.5rem;
 }
 .footer{
-  background-color: #282c34;
+  background-color: #13373e;
   height: 5em;
   bottom: 0;
   width: 100%;
   position: fixed;
+  color: aliceblue;
 }
 
 img.bookImg.card-img {
@@ -41,11 +55,6 @@ img.bookImg.card-img {
 
 .row{
   margin-bottom: 5rem;
-}
-.card{
-  border: 0px solid rgba(0,0,0,.125);
-  margin-bottom: 2rem;
-  box-shadow: 5px 10px #cccbcba3;
 }
 .addBook {
   position: fixed;
@@ -67,9 +76,9 @@ img.bookImg.card-img {
 }
 
 .arrow .btn-secondary{
-  color: #282c34;
-  background-color: #ffffff00;
-  border-color: rgb(218, 198, 198);
+  color: #13373e;
+  background-color: #fa957600;
+  border-color: rgb(207, 104, 104);
 } 
 
 
@@ -79,7 +88,7 @@ img.bookImg.card-img {
 }
 .cards{
   position: relative;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
@@ -99,6 +108,11 @@ img.bookImg.card-img {
   .cards {
     width: 9.4rem;
   }
+  .book{
+    display: inline-block;
+    padding-left: 4rem;
+  }
+
 }
 @media(max-width: 1366px){
   .card{
@@ -107,7 +121,7 @@ img.bookImg.card-img {
   }
   .rows{
     margin-left: 21px;
-    margin-bottom: 8rem;
+    margin-bottom: 5rem;
   }
   .addBook{
     right: 59px;
@@ -123,6 +137,10 @@ img.bookImg.card-img {
   .addBook{
     width: 40px;
     right: 4px;
+  }
+  .book{
+    display: inline-block;
+    padding-left: 2.5rem;
   }
 }
 
@@ -151,5 +169,9 @@ img.bookImg.card-img {
   }
   .addBook{
     right: 8px;
+  }
+  .book{
+    display: inline-block;
+    padding-left: 5rem;
   }
 }

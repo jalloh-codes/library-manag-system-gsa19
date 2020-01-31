@@ -7,43 +7,30 @@ import {Link} from 'react-router-dom';
 import {removeBook} from '../actions/bookActions';
 const BookCard = ({id, title, authorFirst, authorLast, image, authorID, dispatch}) =>(
 
-         
-                
-                    // <div className="cols" key={id}>
-                    
                         <div className="cards" key={id} >
-                        <Link to={{pathname:`/book/${title}/${id}`, state:{
-                            name: true
-                        }}} > 
-                        <CardImg  top width="100%" src={image} /> </Link>
+                        <CardImg  top width="100%" src={image} /> 
                             <CardBody>
-                            <CardTitle> <CardText>{title}</CardText></CardTitle>
-                                <CardSubtitle>
-                                    <Link to={{pathname:`/author/${authorFirst}/${authorLast}/${authorID}`}}> By: 
-                                        <small>{authorFirst} {authorLast}.</small> 
+                                <Link to={{pathname:`/book/${title}/${id}`}} > 
+                                 <CardTitle> <CardText>{title}</CardText></CardTitle></Link>
+                                <CardText>
+                                    <Link 
+                                    to={{pathname:`/author/${authorFirst}/${authorLast}/${authorID}`}}>
+                                         By: <small>{authorFirst} {authorLast}.</small> 
                                     </Link> 
-                                </CardSubtitle>               
+                                </CardText>               
                             </CardBody>
                             <UncontrolledButtonDropdown className="arrow">
-                                        <DropdownToggle caret>
-                                            
-                                        </DropdownToggle>
-                                        <DropdownMenu>
-                                            <DropdownItem
-                                            className="remove-btn" 
-                                            color="danger"
-                                            size="sm"
-                                            onClick={() =>{
-                                                dispatch(removeBook({id}));
-                                            }}
-                                            >DELETE</DropdownItem>
-                                            <DropdownItem>EDIT</DropdownItem>
-                                            
-                                        </DropdownMenu>
-                                    </UncontrolledButtonDropdown>        
+                                <DropdownToggle caret></DropdownToggle>
+                                <DropdownMenu>
+                                    <DropdownItem
+                                        className="remove-btn" 
+                                        color="danger" size="sm"
+                                        onClick={() =>{}}>DELETE
+                                    </DropdownItem>
+                                    <DropdownItem>EDIT</DropdownItem>                                  
+                                </DropdownMenu>
+                                </UncontrolledButtonDropdown>        
                         </div> 
-                    
-                    // </div>
                 
                 
             

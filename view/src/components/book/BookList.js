@@ -4,6 +4,7 @@ import { connect }  from 'react-redux'
 import {getBooks} from '../actions/bookActions';
 import BookModal from './BookModal';
 import { Container, FormGroup,Input,} from 'reactstrap';
+import {getAuthors} from '../actions/authorActions';
 
 
 class BookList extends Component{
@@ -20,51 +21,59 @@ class BookList extends Component{
     }
 
     componentDidMount(){
-        this.props.getBooks()
+        this.props.getBooks();
+        this.props.getAuthors();
     }
     handleInput(e){
         this.setState({[e.target.name]: e.target.value}); 
     }
     
-    getbooks =  () => {
+
+
+    searchbooks =  () => {
         return(this.props.books.filter((book)=>
         (book.title.trim().toLowerCase().includes(this.state.searchTitle.trim().toLowerCase())) ? 
          book : null))
     }
+
+    getBooks = () => {
+        return(this.searchbooks())
+    }
     
     render(){
-        return(
         
-            <Container >
+        return(
+            <Container className="main-page">
                     <div className="search">
-                    {/* <Form className="f-searach"  onSubmit={this.onSubmit}> */}
                         <FormGroup>
                               <Input type="text" name="searchTitle" id="searchTitle"
                                      palceholder="search book by title" 
                                      value={this.state.searchTitle}
                                      onChange={this.handleInput}
                                      />
-                        {/* <Button width="3rem" color="dark"style={{marginTop: '2rem'}}
-                         >Search</Button>                         */}
+                                        
                         </FormGroup>                        
-                    {/* </Form>  */}
+                   
                     
                 </div>  
                 
-                <div>
+                <div className="booklist">
                         <div className="rows"> 
                         {
-                            this.getbooks().map((e) =>
+                            this.searchbooks().map((e) =>
+                            this.props.authors.map((a) => {
+                             return(parseInt(e.authorID) === parseInt(a.authorID)) ? 
+                  
                                 <BookCard 
                                 id={e.id}
                                 image={e.image}
                                 title={e.title}
-                                authorFirst={e.authorFirst}
-                                authorLast={e.authorLast}
+                                authorFirst={a.authorFirst}
+                                authorLast={a.authorLast}
                                 authorID={e.authorID}
                                 key={e.id}
-                                />
-                            )
+                                /> : null
+                            }))
                             }
                         </div>
 
@@ -84,9 +93,10 @@ class BookList extends Component{
 const mapStateToProps = (state) =>{
     return{
         books: state.bookReducer,
+        authors: state.authorReducer
 
     }
 }
 
 
-export default connect(mapStateToProps, {getBooks})(BookList)
+export default connect(mapStateToProps, {getBooks, getAuthors})(BookList)

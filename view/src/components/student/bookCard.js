@@ -9,9 +9,7 @@ const BookList = ({books, rents, stuID}) =>(
 
          <div>
 
-
           {
-              
               
              rents.map((rent)=>
                 (parseInt(rent.studentID) === parseInt(stuID)) ? books.map((book) =>

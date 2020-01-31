@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 
 import  {Navbar, NavItem, NavLink, Nav, 
-NavbarToggler, Collapse} from 'reactstrap';
+NavbarToggler, Collapse, Container, Row} from 'reactstrap';
 
 
 
 export default class Header extends Component{
 
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state ={
             open: false
         }
@@ -32,7 +32,7 @@ export default class Header extends Component{
                     <Collapse isOpen={this.state.open} navbar>
                     <Nav navbar>
                         <NavItem>
-                        <NavLink href="/author" >Authors</NavLink>
+                        <NavLink href="/author">Authors</NavLink>
                         </NavItem>
                         <NavItem>
                         <NavLink href="/books">Books</NavLink>

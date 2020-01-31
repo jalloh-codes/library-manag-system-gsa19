@@ -2,23 +2,23 @@ import  React, {Component} from 'react';
 import AuthorCard from  './cards';
 import {Container} from 'reactstrap'
 import { connect }  from 'react-redux'
-import {getBooks} from '../actions/bookActions';
+import {getAuthors} from '../actions/authorActions';
 
 class  AuthorList extends Component{
 
     componentDidMount(){
-        this.props.getBooks()
+        this.props.getAuthors()
     }
     render(){   
     return(
         <Container>
         <div>
-            {this.props.books.map((book) =>
+            {this.props.authors.map((author) =>
                   <AuthorCard 
-                    id={book.id}
-                        authorID={book.authorID}
-                     authorFirst={book.authorFirst}
-                    authorLast={book.authorLast}
+                    id={author.id}
+                        authorID={author.authorID}
+                     authorFirst={author.authorFirst}
+                    authorLast={author.authorLast}
                     key={2}
                    />  
             )} 
@@ -32,10 +32,10 @@ class  AuthorList extends Component{
 
 const mapStateToProps = (state) =>{
     return{
-        books: state.bookReducer,
+        authors: state.authorReducer,
 
     }
 }
 
 
-export default connect(mapStateToProps, {getBooks})(AuthorList)
+export default connect(mapStateToProps, {getAuthors})(AuthorList)

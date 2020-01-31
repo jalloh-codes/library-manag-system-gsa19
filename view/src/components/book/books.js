@@ -4,6 +4,7 @@ import { connect }  from 'react-redux'
 import SingleBook from './SingleBook'
 import {getBooks}  from '../actions/bookActions';
 import {getRents}  from '../actions/rentActions';
+import {getAuthors} from '../actions/authorActions';
 
 class  Books extends Component{
 
@@ -27,25 +28,27 @@ class  Books extends Component{
       
         
         return(
-        <Container>
+        <Container className="main-page">
 
             <li>Books Dome Data</li>
                 <hr/>
-                {this.props.books.map((book) =>{
-                    return(book.id === parseInt(this.bkID))?
+                {this.props.books.map((book) =>
+                this.props.authors.map((author) =>{
+                    return(book.id === parseInt(this.bkID) && 
+                    parseInt(author.authorID) === parseInt(book.authorID))?
                      <SingleBook 
                         id={book.id}
                         title={book.title}
                         image={book.image}
-                        authorFirst={book.authorFirst}
-                        authorLast={book.authorLast}
+                        authorFirst={author.authorFirst}
+                        authorLast={author.authorLast}
                         authorID={book.authorID}
                         published={book.published}
                         descriptio={book.descriptio}
                         booknum ={book.booknum}
                         key={3}
-                    />: null}
-                )}
+                    />: null
+                }))}
                 
                 
         </Container>
@@ -57,10 +60,10 @@ class  Books extends Component{
 const mapStateToProps = (state) =>{
     return{
         books: state.bookReducer,
-        rents: state.rentReducer
-
+        rents: state.rentReducer,
+        authors: state.authorReducer
     }
 }
 
 
-export default connect(mapStateToProps, {getBooks, getRents})(Books)
+export default connect(mapStateToProps, {getBooks, getRents, getAuthors})(Books)
