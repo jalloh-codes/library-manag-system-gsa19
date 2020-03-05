@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
-import {
-    Button,
-    Form,
-    FormGroup,
-    Label,
-    Input
-} from 'reactstrap';
+import {Button,Form, FormGroup, Label,Input} from 'reactstrap';
+import { Container} from 'reactstrap';
 import { connect } from 'react-redux';
 import {addStudent, getStudents} from '../actions/studentActions';
 import history from '../../history';
@@ -14,22 +9,14 @@ class AddStudent extends Component{
     constructor(props){
         super(props);
         this.state={
-            fname: '',
-            lname: '',
-            studentID: '',
-            address: '',
-            apt: '',
-            city: '',
-            state: '',
-            zipcode: '',
-            major: '',
-            error: '',
-            exist: ''
+            fname: '',lname: '',studentID: '', address: '',
+            apt: '', city: '', state: '', zipcode: '',
+            major: '', error: '',exist: ''
         }
-       this.handleInput =  this.handleInput.bind(this);
+        this.handleInput =  this.handleInput.bind(this);
         this.onSubmit = this.onSubmit.bind(this)
     }
-    componentWillMount(){
+    componentDidMount(){
         this.props.getStudents();
     }
     
@@ -41,8 +28,7 @@ class AddStudent extends Component{
         let num = this.props.students.length
         this.props.students.filter((student) =>{
             return (parseInt(student.studentID) !== parseInt(studentID))?
-                num = num - 1: null
-            
+                num = num - 1: null     
           }) 
         return num 
     }
@@ -64,97 +50,85 @@ class AddStudent extends Component{
                 state: this.state.state,
                 zipcode: this.state.zipcode,
                 major: this.state.major
-
             }
             try{
-                return( (parseInt(this.studentExist(info.studentID)) === 1) ?
+                if( (parseInt(this.studentExist(info.studentID)) === 1)){
                     this.setState(() =>({exist: 'Student with the ID number already registed!'}))
-                    : this.props.addStudent(info));
+                }else{
+                    this.props.addStudent(info);
+                    history.goBack();
+                    
+                }
             }catch(err){
-                console.log({err: err});
-                
+                console.log({err: err});               
             }
-            console.log(history.goBack())
-        }  
-        
+            
+        }   
     }
 
     render(){
-       
-        
+    
         return(
-            <div>
-                   {this.state.exist && <p className="error text-danger">{this.state.exist}</p>}
+            <Container className="main-page">
+                <hr/>
+                <p>Add Student Information</p>
+                 
 
                         <Form onSubmit={this.onSubmit} >
                             <FormGroup>
                             <Label for="title">Firstname</Label>
-                                <Input type="text" name="fname" id="fnmae"
-                                value={this.state.fname }
-                                onChange={this.handleInput} />
+                                <Input type="text" name="fname" id="fnmae" 
+                                value={this.state.fname } onChange={this.handleInput} />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="title">Lastname</Label>
                                 <Input type="text"name="lname" id="lname" 
-                                value={this.state.lname}
-                                onChange={this.handleInput} />
+                                value={this.state.lname} onChange={this.handleInput} />
                             </FormGroup>
                             <FormGroup>
+                            {this.state.exist && <p className="error text-danger">{this.state.exist}</p>}
                                 <Label for="title">Student ID</Label>
                                 <Input type="text" name="studentID"id="studentID"
-                                value={this.state.studentID}
-                                onChange={this.handleInput} />
+                                value={this.state.studentID} onChange={this.handleInput} />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="title">Major</Label>
                                 <Input type="text" name="major"id="major"
-                                value={this.state.major}
-                                onChange={this.handleInput} />
+                                value={this.state.major} onChange={this.handleInput} />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="title">Address</Label>
                                 <Input type="text" name="address"id="address"
-                                value={this.state.address}
-                                onChange={this.handleInput} />
+                                value={this.state.address} onChange={this.handleInput} />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="title">Apt</Label>
                                 <Input type="text" name="apt" id="apt"
-                                value={this.state.apt}
-                                onChange={this.handleInput} />
+                                value={this.state.apt} onChange={this.handleInput} />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="title">City</Label>
                                 <Input type="text" name="city" id="city"
-                                value={this.state.city}
-                                onChange={this.handleInput} />
+                                value={this.state.city} onChange={this.handleInput} />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="title">State</Label>
                                 <Input type="text" name="state" id="state"
-                                value={this.state.state}
-                                onChange={this.handleInput} />
+                                value={this.state.state} onChange={this.handleInput} />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="title">Zipe Code</Label>
                                 <Input type="text" name="zipcode" id="zipcode"
-                                value={this.state.zipcode}
-                                onChange={this.handleInput} />
+                                value={this.state.zipcode} onChange={this.handleInput} />
                             </FormGroup>
                             <FormGroup>
-                            <Button
-                                color="dark"style={{marginBottom: '8rem'}}block
-                            >Submit</Button>
+                            <Button color="dark"style={{marginBottom: '8rem'}}block>Submit</Button>
                             </FormGroup>
-                            
                         </Form>
-            </div>
+            </Container>
         );
     }
-
-
 }
-
 
 const mapStateToProps = state =>{
     return {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {CardBody,
-    CardTitle, CardText, CardImg, Col, UncontrolledButtonDropdown, DropdownMenu, DropdownItem, DropdownToggle} from 'reactstrap';
+    CardTitle, CardText, CardImg, UncontrolledButtonDropdown, DropdownMenu, DropdownItem, DropdownToggle} from 'reactstrap';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {removeRent} from '../actions/rentActions';

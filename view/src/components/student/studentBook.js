@@ -6,7 +6,7 @@ import {getRents} from '../actions/rentActions'
 import { connect } from 'react-redux';
 import BookList from './bookCard';
 import StudentInfo from './StudentInfo';
-
+import {getAuthors} from '../actions/authorActions';
 class StudentBooks extends Component{
 
 
@@ -15,6 +15,7 @@ class StudentBooks extends Component{
         this.props.getBooks();
         this.props.getRents();
         this.props.getStudents();
+        this.props.getAuthors()
     }
 
     
@@ -22,7 +23,30 @@ class StudentBooks extends Component{
     stuID = window.location.pathname.split('/').slice(-1)[0]
 
 
-
+    getbooks = () => {
+        let arrayBooks = []
+        this.props.books.filter((book) =>{
+            this.props.authors.filter((author) =>{
+                try{
+                    if(parseInt(book.authorID) === parseInt(author.authorID)){
+                        let data ={id: book.id, title: book.title, image:book.image,
+                            authorFirst:author.authorFirst, authorLast:author.authorLast,
+                            authorID:book.authorID, booknum: book.booknum, 
+                            descriptio:book.descriptio, published:book.published,
+                            }
+                    arrayBooks.push(data)
+                    }else{
+                        return null;
+                    }
+                }catch(err){
+                    console.log({err: err});
+                    
+                }
+            })
+            
+        })
+        return arrayBooks; 
+}
 
     render(){
         
@@ -51,7 +75,7 @@ class StudentBooks extends Component{
 
                     <div className="rows">
                         <BookList 
-                            books={this.props.books}
+                            books={this.getbooks()}
                             rents={this.props.rents}
                             
                             stuID={this.stuID}
@@ -66,10 +90,11 @@ const mapStateToProps = (state) =>{
     return{
         books: state.bookReducer,
         rents: state.rentReducer, 
+        authors: state.authorReducer,
         students: state.studentReducer
 
     }
 }
 
 
-export default connect(mapStateToProps, {getBooks, getRents, getStudents})(StudentBooks)
+export default connect(mapStateToProps, {getBooks, getRents, getStudents, getAuthors})(StudentBooks)

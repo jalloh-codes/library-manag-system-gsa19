@@ -1,21 +1,32 @@
 import React from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
-    
-const AuthorCard = ({id, authorFirst, authorLast, authorID}) =>{
+import {removeAuthor} from '../actions/authorActions';
+import { connect } from 'react-redux';
+
+const AuthorCard = ({id, authorFirst, authorLast, authorID, dispatch}) =>{
     return(
-        <ListGroup key={authorID}>
-            <ListGroupItem key={id}>
-                <Link to={{ pathname:`/author/${authorFirst}/${authorLast}/${authorID}`,
-                        state:{
-                            authorID: authorID
-                        }
-                }}>
-                {authorFirst}, {authorLast}
-                </Link>
-            </ListGroupItem>
-        </ListGroup>
+           <tr key={id}>
+                <td> 
+                    <Link to={{ pathname:`/author/${authorFirst}/${authorLast}/${authorID}`}}>
+                        {authorFirst}
+                    </Link>
+                </td>
+                <td>
+                    <Link to={{ pathname:`/author/${authorFirst}/${authorLast}/${authorID}`}}>
+                        {authorLast}
+                    </Link>
+                </td>
+                <td>{authorID}</td>
+                <td>
+                    <Button
+                        className="remove-btn" color="danger" size="sm"
+                         onClick={() =>{ dispatch(removeAuthor({id}));
+                         }}>&times;
+                     </Button> 
+                </td>
+            </tr>
     );
 };
 
-export default AuthorCard;
+export default connect()(AuthorCard);

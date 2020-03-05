@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import  {Navbar, NavItem, NavLink, Nav, 
-NavbarToggler, Collapse, Container, Row} from 'reactstrap';
+NavbarToggler, Collapse} from 'reactstrap';
 
 
 
@@ -25,11 +25,11 @@ export default class Header extends Component{
     } 
     render(){
         return(
-            <header className="header-div">
+            <header className="header-div" style={{color: 'aliceblue'}}>
                 <Navbar color="faded" light>
                     <NavbarToggler onClick={this.toggleNavbar} />
                    
-                    <Collapse isOpen={this.state.open} navbar>
+                    <Collapse isOpen={this.state.open} navbar >
                     <Nav navbar>
                         <NavItem>
                         <NavLink href="/author">Authors</NavLink>

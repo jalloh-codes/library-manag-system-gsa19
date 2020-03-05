@@ -32,7 +32,7 @@ const _removeRent = ({ id } = {}) => ({
 
 export const removeRent = ({id} = {})=>{
     return (dispatch) =>{
-        return axios.delete(`/rented/delete/${id}`).then(() =>{
+        return axios.delete(`rented/delete/${id}`).then(() =>{
             dispatch(_removeRent({id}))
         })
     }

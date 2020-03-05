@@ -3,8 +3,8 @@ import { connect }  from 'react-redux'
 import {getStudents} from '../actions/studentActions'
 import {getBooks} from '../actions/bookActions';
 import Card from './card';
-import {Container} from 'reactstrap'
-
+import {Container, Table} from 'reactstrap'
+import {Link} from 'react-router-dom';
 class Student extends Component{
 
     componentDidMount(){
@@ -14,11 +14,21 @@ class Student extends Component{
     render(){
         return(
             <Container className="main-page">
-
-            <div>
-                <li>Registed Student List</li>
                 <hr/>
-                {
+                <div><p><span>Student List.</span>
+                <Link to={{pathname:`/sign`}}> Sign in </Link>if you have have not registed already.</p>
+                </div>
+            <Table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>ID#</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            {
                     this.props.students.map((student) =>{
                         return <Card id={student.id}
                         fname={student.fname}
@@ -26,7 +36,8 @@ class Student extends Component{
                             studentID={student.studentID} key={student.id}/>
                     })
                 }
-            </div>
+            </tbody>
+            </Table>
             </Container>
         );
     }

@@ -9,9 +9,9 @@ class Rent extends Component{
     constructor(props){
         super(props);
         this.state={
-            modal: false, ooknum: '',rentDay: '',
+            modal: false, booknum: this.props.booknum, rentDay: '',
             dueDay: '',studentID: '', error: '',
-            verify: '', exist: '.'
+            verify: '', exist: ''
         }
         this.handleInput =  this.handleInput.bind(this);
         this.onSubmit = this.onSubmit.bind(this)
@@ -35,7 +35,7 @@ class Rent extends Component{
     verify = (booknum, studentID) =>{
         let num =0
         this.props.getRented.filter((rent) =>{
-          return (rent.booknum == booknum && parseInt(rent.studentID) === parseInt(studentID)) ?
+          return (rent.booknum == (booknum) && parseInt(rent.studentID) === parseInt(studentID)) ?
             num = num +1  : null
         }) 
         return num 
@@ -62,36 +62,28 @@ class Rent extends Component{
                 booknum: this.props.booknum
             }
             try{
-                return ((this.verify(info.booknum, info.studentID) >= 1) ?
+                return ( (parseInt(this.verify(info.booknum, info.studentID))  === 1) ?
                     this.setState(() =>({verify: `Student already checkout this book`})) :
-                (parseInt(this.studentExist(info.studentID)) === 1) ?
-                    this.props.addRent(info):
-                    this.setState(() =>({exist: `Student does not exist, Sign In.`}))),
-                    this.toggle();
-                
+                (parseInt(this.studentExist(info.studentID)) === 1) ? 
+                this.props.addRent(info):
+                    this.setState(() =>({exist: `Student does not exist, Sign In.`})))
+                    //this.toggle()                  
             }catch(err){
                 console.log({err: err});
-                
-            }                       
+            }                                 
         }  
-        console.log(this.toggle())
-        this.setState(() => ({ 
-            error: '',
-            booknum: '',
-            rentDay: '',
-            dueDay: '',
-            studentID: '',
-         }));
+        window.location.reload() 
+
     }  
 
     render(){         
         let path= window.location.pathname;
-                          
+        
         return(
             <div>
-               <Button color="dark"
-                stye={{marginTop: '2rem'}}onClick={this.toggle}
-                >Checkout</Button>
+               <small size="sm"
+                onClick={this.toggle}
+                >CHECKOUT</small>
                 <Modal isOpen ={this.state.modal}  toggle={this.toggle} >
 
                     <ModalHeader toggle={this.toggle}>Student Information</ModalHeader>
@@ -121,7 +113,7 @@ class Rent extends Component{
                             </FormGroup>
                             <FormGroup>
                                 <Label for="title">Student ID</Label>
-                                <Input type="text"
+                                <Input type="number"
                                 name="studentID"
                                 id="b"
                                 value={this.state.studentID}
@@ -143,10 +135,7 @@ class Rent extends Component{
             </div>
         );
     }
-
-
 }
-
 
 const mapStateToProps = state =>{
     return {

@@ -17,7 +17,23 @@ import StudentBooks from './components/student/studentBook';
 import AddStudent from  './components/student/addStudent';
 import history from './history';
 class App extends Component{
+  authenticate(){
+    return new Promise(resolve => setTimeout(resolve, 9000)) // 2 seconds
+  }
 
+  componentDidMount(){
+    this.authenticate().then(() => {
+      const ele = document.getElementById('ipl-progress-indicator')
+      if(ele){
+        // fade out
+        ele.classList.add('available')
+        setTimeout(() => {
+          // remove from DOM
+          ele.outerHTML = ''
+        }, 9000)
+      }
+    })
+  }
   
   
   render(){
@@ -37,6 +53,7 @@ class App extends Component{
          <Route exact path="/students"  render ={() => <Student/>} />
          <Route exact path="/students/:fname/:lname/:StudentID" component={StudentBooks} />
          <Route exact path="/sign" render={() => <AddStudent />} />
+         {/* <Route exact path="/update/:id" render={()=><EditBook />}/> */}
          <Route exact path="/"  render ={() => <Test/>} />
          </Switch>
         </Container>

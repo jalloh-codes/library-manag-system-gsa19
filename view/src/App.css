@@ -99,19 +99,50 @@ img.bookImg.card-img {
   width: 10.5rem;
   margin: 7px;
 }
-
 .arrow{
   width: 10px;
 }
-
+.btn{
+  padding: 0%;
+}
+.author-delete{
+  display: inline-flex;
+  float: right;
+  margin-right: 1rem;
+  margin-top: -11px;
+}
+.author{
+  width: fit-content;
+}
+table{
+  background: #13373e;
+  color: aliceblue;
+}
 .list-groups{
   margin-top: 8px;
 }
 button.remove-btn.delete.btn.btn-danger.btn-sm {
   width: fit-content;
   float: right;
+  
+}
+.btn{
+  margin: 4px;
 }
 
+p.setting.card-text {
+  display: inline-flex;
+}
+small.delete {
+  color: #ff4848;
+  font-size: 11px;
+  margin-right: 15px;
+}
+small.update {
+  font-size: 13px;
+  color: #0049b9;
+  display: inline-flex;
+}
 @media(width: 414px){
   .cards {
     width: 9.4rem;
@@ -159,6 +190,9 @@ button.remove-btn.delete.btn.btn-danger.btn-sm {
   .rows{
     margin-left: 0;
   }
+  a{
+    font-size: small;
+  }
 }
 
 @media(max-width: 360px){
@@ -168,6 +202,9 @@ button.remove-btn.delete.btn.btn-danger.btn-sm {
   .addBook{
     right: 4px;
     width: 40px;
+  }
+  .td{
+    padding: 0;
   }
 }
 

@@ -12,7 +12,8 @@ const authorsReducer= [];
             return state.filter(({id}) => id !== action.id);
         case 'EDIT_AUTHOR':
             return state.map((author) =>{
-                if(author.id === author.id){
+                if(author.id){
+                    //author.id === author.id
                     return{
                         ...author,
                         ...action.updates

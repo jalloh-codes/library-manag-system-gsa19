@@ -1,11 +1,10 @@
 import React from 'react';
-import {Col, CardBody, CardTitle, CardText, CardSubtitle} from 'reactstrap';
+import { CardBody, CardText, CardSubtitle, Jumbotron} from 'reactstrap';
 const StudentInfo = ({id, fname, lname, studentID, address, city, state, apt, zipcode, major}) =>(
-    <Col sm="12" md={{ size: 6, offset: 3 }} key={id}>
-        <CardBody>
-            <p className="glyphicon glyphicon-user"></p>
+    <div key={id}>
+        <Jumbotron>
             <CardBody>
-                <CardTitle>Name: {fname}, {lname}<CardSubtitle>ID:{studentID}</CardSubtitle></CardTitle>
+                <h4>{fname}, {lname}.<CardSubtitle>ID:{studentID}</CardSubtitle></h4>
                 <CardSubtitle><CardText>Major: {major}</CardText> </CardSubtitle>
                 <CardSubtitle>
                     <CardText>Address:{address}, Apt:{apt}</CardText>
@@ -13,8 +12,8 @@ const StudentInfo = ({id, fname, lname, studentID, address, city, state, apt, zi
                     <CardText>Zipe: {zipcode}.</CardText>
                 </CardSubtitle>
             </CardBody>
-        </CardBody>
-    </Col>
+        </Jumbotron>
+    </div>
 );
 
 export default StudentInfo;

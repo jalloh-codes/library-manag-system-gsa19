@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-    Button,
-    Form,
-    FormGroup,
-    Label,
-    Input,
-
-} from 'reactstrap';
+import { Button, Form,  FormGroup, Label,Input} from 'reactstrap';
 
 export default class BookForm extends React.Component {
     constructor(props) {
@@ -60,7 +53,6 @@ export default class BookForm extends React.Component {
         this.setState(() => ({ published: published }));
     }
 
-
     onSubmit(e) {
         e.preventDefault();
             this.props.onSubmitBook(
@@ -80,63 +72,30 @@ export default class BookForm extends React.Component {
             <Form onSubmit={this.onSubmit} >
             <FormGroup>
                 {this.state.error && <p className='error'>{this.state.error}</p>}
-                
                             <Label for="title">Title</Label>
-                                <Input type="text"
-                                name="title"
-                                id="title"
-                                palceholder="add title"
-                                value={this.state.title}
-                                onChange={this.onTitleChange} />
-
+                                <Input type="text" name="title" id="title"
+                                palceholder="add title"value={this.state.title} onChange={this.onTitleChange} />
 
                     <Label for="title">Author Firstname</Label>
-                                <Input type="text"
-                                name="authorFirst"
-                                id="authorFirst"
-                                palceholder="add author firstname"
-                                value={this.state.authorFirst}
-                                onChange={this.onAuthorFirstChange} />
+                                <Input type="text" name="authorFirst" id="authorFirst"
+                                palceholder="add author firstname" value={this.state.authorFirst} onChange={this.onAuthorFirstChange} />
                     
                     <Label for="title">Author Lastname</Label>
-                                <Input type="text"
-                                name="authorLast"
-                                id="authorLast"
-                                palceholder="add author lastname"
-                                value={this.state.authorLast}
-                                onChange={this.onAuthorLastChange} />
+                                <Input type="text" name="authorLast" id="authorLast"
+                                palceholder="add author lastname" value={this.state.authorLast} onChange={this.onAuthorLastChange} />
 
                     <Label for="title">Description</Label>
-                                <Input type="text"
-                                name="description"
-                                id="description"
-                                palceholder="add description"
-                                value={this.state.descriptio}
-                                onChange={this.onDescriptionChange} />
-
+                                <Input type="text" name="description" id="description"
+                                palceholder="add description" value={this.state.descriptio} onChange={this.onDescriptionChange} />
 
                     <Label for="">Published Date</Label>
-                                <Input type="text"
-                                name="published"
-                                id="published"
-                                palceholder="add published date"
-                                value={this.state.published}
-                                onChange={this.onPublishedChange} />
-
+                                <Input type="text" name="published" id="published"
+                                palceholder="add published date" value={this.state.published} onChange={this.onPublishedChange} />
 
                     <Label for="title">Image File</Label>
-                                <Input type="text"
-                                name="image"
-                                id="image"
-                                
-                                value={this.state.image}
-                                onChange={this.onImageChange} />
-                    <Button
-                                color="dark"
-                                style={{marginTop: '2rem'}}
-                                block
-                                >Add Book</Button>
-                
+                                <Input type="text" name="image" id="image" 
+                                value={this.state.image}onChange={this.onImageChange} />
+                    <Button color="dark"style={{marginTop: '2rem'}}block>Add Book</Button>
                 </FormGroup>
                 </Form>
         );
